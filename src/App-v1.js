@@ -21,6 +21,14 @@ export default function App() {
     setIsOpen(!isOpen);
   }
 
+  function Button({ onClick, style, children }) {
+    return (
+      <button onClick={onClick} style={style}>
+        {children}
+      </button>
+    );
+  }
+
   return (
     <>
       <>
@@ -39,18 +47,18 @@ export default function App() {
             </p>
             <div className="buttons">
               {/* onClick={()=> setStep(()=> if(step >=1) step -1)} */}
-              <button
+              <Button
                 onClick={prevHandler}
                 style={{ backgroundColor: "#7950f2", color: "#fff" }}
               >
-                Previous
-              </button>
-              <button
+                <span>👈</span> Previous
+              </Button>
+              <Button
                 onClick={nextHandler}
                 style={{ backgroundColor: "#7950f2", color: "#fff" }}
               >
-                Next
-              </button>
+                Next <span>👉</span>
+              </Button>
             </div>
           </div>
         )}
